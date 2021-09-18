@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { OrderDetail } = require('../../models');
 
-// READ all orders
+// READ all order details
 router.get('/', (req, res) => {
     OrderDetail.findAll(
         // update if we want to exclude the password
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// CREATE new order
+// CREATE new order detail (add products to existing orders)
 router.post('/', (req, res) => {
     OrderDetail.create({
         order_id: req.body.order_id,

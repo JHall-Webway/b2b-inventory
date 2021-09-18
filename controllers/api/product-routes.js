@@ -47,7 +47,7 @@ router.delete('/:id', (req,res) => {
     })
 });
 
-// CREATE many records from an excel doc
+// CREATE many records from an excel doc (you must pass an array of product records into this route)
 router.post('/excel', (req, res) => {
     const productArray = req.body;
 
