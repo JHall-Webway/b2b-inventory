@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Order, Product } = require('../../models');
+const { Order, Product, OrderDetail } = require('../../models');
 
 // Get all orders test
 router.get('/', (req, res) => {
@@ -20,7 +20,8 @@ router.get('/:id', (req,res) => {
         },
         include: [
             {
-                model: Product
+                model: Product,
+                attributes: ['id', 'product_name']
             }
         ]
     })
