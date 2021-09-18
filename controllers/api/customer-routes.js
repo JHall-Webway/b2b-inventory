@@ -1,31 +1,29 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { Customer } = require('../../models');
 
-
-// Get all users test
+// Get all products test
 router.get('/', (req, res) => {
-    User.findAll(
+    Customer.findAll(
         // update if we want to exclude the password
     )
-    .then(dbUserData => res.json(dbUserData))
+    .then(dbProductData => res.json(dbProductData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
 
-// Create a new user test
 router.post('/', (req, res) => {
-    User.create({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
+    Customer.create({
+        customer_name: req.body.customer_name,
+        user_id: req.body.user_id
     })
-    .then(dbUserData => res.json(dbUserData))
+    .then(dbProductData => res.json(dbProductData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    });
+    })
 });
+
 
 module.exports = router;
