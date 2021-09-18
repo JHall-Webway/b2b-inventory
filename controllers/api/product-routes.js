@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Product } = require('../../models');
 
-// Get all products test
+// READ all products
 router.get('/', (req, res) => {
     Product.findAll(
         // update if we want to exclude the password
@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// CREATE new product
 router.post('/', (req, res) => {
     Product.create({
         product_name: req.body.product_name,

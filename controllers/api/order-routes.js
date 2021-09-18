@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Order, Product, OrderDetail } = require('../../models');
 
-// Get all orders test
+// READ all orders
 router.get('/', (req, res) => {
     Order.findAll(
         // update if we want to exclude the password
@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// READ one order and all order details
 router.get('/:id', (req,res) => {
     Order.findOne({
         where: {
@@ -36,8 +37,9 @@ router.get('/:id', (req,res) => {
         console.log(err);
         res.status(500).json(err);
     })
-})
+});
 
+// CREATE new order
 router.post('/', (req, res) => {
     Order.create({
         customer_id: req.body.customer_id,
@@ -53,5 +55,24 @@ router.post('/', (req, res) => {
     })
 });
 
+// DELETE order and all associated order details
+router.delete('/:id', (req, res) => {
+    Order.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbOrderData => {
+        if (!dbOrderData) {
+            res.status(404).json({ message: 'No order found with this id'});
+            return;
+        }
+        res.json(dbOrderData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router;
