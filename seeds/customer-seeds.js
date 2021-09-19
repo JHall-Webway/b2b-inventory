@@ -18,11 +18,11 @@ const customerData = [
         "user_id": 4
     },
     {
-        "customer_name": "ikea",
+        "customer_name": "Ikea",
         "user_id": 5
     }
 ];
 
-const seedUsers = () => Customer.bulkCreate(customerData);
+const seedCustomers = () => Customer.bulkCreate(customerData);
 
-module.exports = seedUsers;
+module.exports = seedCustomers;
