@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 
-// Get all users test
+// READ all users
 router.get('/', (req, res) => {
     User.findAll(
         // update if we want to exclude the password
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// Create a new user test
+// CREATE a new user
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
