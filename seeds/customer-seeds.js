@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { Customer } = require('../models');
 
 const customerData = [
     {
@@ -6,11 +6,11 @@ const customerData = [
         "user_id": 1
     },
     {
-        "customer_name": "Stinger Shop",
+        "customer_name": "Stinger Electronics",
         "user_id": 2
     },
     {
-        "customer_name": "Blackwell Shop",
+        "customer_name": "Blackwell's Wines",
         "user_id": 3
     },
     {
@@ -23,6 +23,6 @@ const customerData = [
     }
 ];
 
-const seedUsers = () => User.bulkCreate(customerData);
+const seedUsers = () => Customer.bulkCreate(customerData);
 
 module.exports = seedUsers;
