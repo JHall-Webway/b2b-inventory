@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         .then(dbPostData => {
             const users = dbPostData.map(user => user.get({ plain: true }));
             // render the homepage handlebars
-            res.render('homepage', { users });
+            res.render('orders', { users });
         })
         .catch(err => {
             console.log(err);
