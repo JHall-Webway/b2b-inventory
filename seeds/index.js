@@ -6,6 +6,8 @@ const seedCustomers = require('./customer-seeds');
 const seedProducts = require('./product-seeds');
 // import order seeds
 const seedOrders = require('./order-seeds');
+// import order details seeds
+const seedOrderDetail = require('./orderdetails-seeds')
 
 // import sequelize
 const sequelize = require('../config/connection');
@@ -30,7 +32,11 @@ const seedAll = async () => {
 
     // call order seeds to populate order table
     await seedOrders();
-    console.log('\n---- ORDERS SEEDED ----\n')
+    console.log('\n---- ORDERS SEEDED ----\n');
+
+    // call order detail seeds to populate orderdetails table
+    await seedOrderDetail();
+    console.log('\n---- ORDER DETAILS SEEDED ----\n');
 
     process.exit(0);
 };
