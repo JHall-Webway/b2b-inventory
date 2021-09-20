@@ -4,37 +4,37 @@ const OrderData = [
     {
         customer_id: 1,
         user_id: 1,
-        due_date: "2020-10-15",
+        due_date: "2022-01-15",
         fulfilled: 0,
-        notes: "test note"
+        notes: "David's 1st customer's order"
     },
     {
         customer_id: 2,
-        user_id: 2,
-        due_date: "2021-11-20",
+        user_id: 1,
+        due_date: "2022-02-20",
         fulfilled: 0,
-        notes: "test note"
+        notes: "David's 2nd customer's order"
     },
     {
         customer_id: 3,
-        user_id: 3,
+        user_id: 2,
         due_date: "2021-12-25",
         fulfilled: 0,
-        notes: "test note"
+        notes: "Jame's 1st customer's order"
     },
     {
         customer_id: 4,
-        user_id: 4,
-        due_date: "2021-09-25",
+        user_id: 2,
+        due_date: "2021-12-26",
         fulfilled: 0,
-        notes: "test note"
+        notes: "Jame's 2nd customer's order"
     },
     {
         customer_id: 5,
-        user_id: 5,
-        due_date: "2021-12-23",
+        user_id: 3,
+        due_date: "2021-10-10",
         fulfilled: 0,
-        notes: "test note"
+        notes: "Zach's only customer's order"
     }
 ];
 
