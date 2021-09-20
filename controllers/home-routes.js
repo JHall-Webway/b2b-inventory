@@ -1,20 +1,19 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { User } = require('../models');
+const { Customer } = require('../models');
 
 router.get('/', (req, res) => {
-    User.findAll({
+    Customer.findAll({
         attributes: [
             'id',
-            'username',
-            'email',
-            'password'
+            'customer_name'
         ]
     })
         .then(dbPostData => {
-            const users = dbPostData.map(user => user.get({ plain: true }));
+            const customers = dbPostData.map(user => user.get({ plain: true }));
             // render the homepage handlebars
-            res.render('orders', { users });
+            res.render('homepage', { 
+                customers,
+                loggedIn: req.session.loggedIn });
         })
         .catch(err => {
             console.log(err);
