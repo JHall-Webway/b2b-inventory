@@ -57,5 +57,29 @@ router.post('/excel', (req, res) => {
     })
 })
 
+// UPDATE inv_qty of a product
+router.put('/:id', (req, res) => {
+    Product.update(
+        {
+            quantity: req.body.quantity
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+    .then(dbProductData => {
+        if (!dbProductData) {
+            res.status(404).json({ message: 'No Product found with this id' });
+            return;
+        }
+        res.json(dbProductData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
 
 module.exports = router;
