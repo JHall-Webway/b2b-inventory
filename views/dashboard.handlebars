@@ -1,0 +1,20 @@
+<section class="new-post-section">
+    <button type="submit" class="btn" id="create-new-post">+ Create New Post</button>
+</section>
+
+
+{{#if customers.length}}
+<section>
+    <h2>My Dashboard</h2>
+    <ul class="post-list">
+        {{#each customers as |customer|}}
+        <li>
+            {{> post-info post}}
+            <a href="/dashboard/edit/{{customer.id}}" class="edit-link">edit post</a>
+        </li>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
+
+<script src="/javascript/create-post.js"></script>
