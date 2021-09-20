@@ -1,4 +1,3 @@
-const { use } = require('../controllers/api/user-routes');
 const { User } = require('../models');
 
 // const userData = [{
