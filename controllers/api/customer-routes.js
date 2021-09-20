@@ -79,5 +79,30 @@ router.delete('/:id', (req,res) => {
     })
 })
 
+// UPDATE a customer's name
+router.put('/:id', (req,res) => {
+    Customer.update(
+        {
+            customer_name: req.body.customer_name
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+    .then(dbCustomerData => {
+        if (!dbCustomerData) {
+            res.status(404).json({ message: 'No customer found with this id' });
+            return;
+        }
+        res.json(dbCustomerData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+})
+
 
 module.exports = router;
