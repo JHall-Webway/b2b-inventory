@@ -9,7 +9,6 @@
     <ul class="post-list">
         {{#each customers as |customer|}}
         <li>
-            {{> post-info post}}
             <a href="/dashboard/edit/{{customer.id}}" class="edit-link">edit post</a>
         </li>
         {{/each}}
