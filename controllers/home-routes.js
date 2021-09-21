@@ -34,11 +34,11 @@ router.get('/login', (req, res) => {
 // if user session exists redirect to homepage else render signup
 router.get('/signup', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
 
-    res.render('login');
+    res.render('dashboard');
 });
 
 module.exports = router;
