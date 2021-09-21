@@ -40,43 +40,6 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
-// router.get('/custDetail/:id', withAuth, (req,res) => {
-//     Customer.findByPk(req.params.id, {
-//         where: {
-//             id: req.session.user_id
-//         },
-//         attributes: ['id', 'customer_name', 'user_id'],
-//         include: [
-//             {
-//                 model: Order,
-//                 attributes: ['id', 'due_date', 'fulfilled', 'notes'],
-//                 include: [
-//                     {
-//                         model: Product,
-//                         attributes: ['id', 'product_name']
-//                     }
-//                 ]
-//             }
-//         ]
-//     })
-//         .then(dbOrderData => {
-//             const customer = dbOrderData.get({ plain: true });
-//             const orders = dbOrderData.orders;
-//             const products = dbOrderData.orders.products;
-//             console.log(customer);
-//             console.log('===============')
-//             console.log(orders);
-//             console.log('===============')
-//             console.log(products);
-//             res.render('single-customer', {
-//                 loggedIn: true
-//             });
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
-// })
 
 router.get('/custDetail/:id', withAuth, (req,res) => {
     Customer.findByPk(req.params.id, {
@@ -96,15 +59,15 @@ router.get('/custDetail/:id', withAuth, (req,res) => {
     })
         .then(dbOrderData => {
             const customer_data = dbOrderData.get({ plain: true });
-            const prodDetail = customer_data.orders[0];
-            const detail = prodDetail.products[0].orderdetail;
+            // const prodDetail = customer_data.orders[0];
+            // const detail = prodDetail.products[0].orderdetail;
 
            
             console.log(customer_data);
-            console.log('===============')
-            console.log(prodDetail);
-            console.log('===============')
-            console.log(detail);
+            // console.log('===============')
+            // console.log(prodDetail);
+            // console.log('===============')
+            // console.log(detail);
             res.render('single-customer', {
                 customer_data,
                 loggedIn: true
@@ -114,6 +77,22 @@ router.get('/custDetail/:id', withAuth, (req,res) => {
             console.log(err);
             res.status(500).json(err);
         });
+});
+
+router.get('/createOrder', withAuth, (req,res) => {
+    Customer.findAll({
+        where: {
+            user_id: req.session.user_id
+        }
+    })
+    .then(dbCustomerData => {
+        console.log("CREATE ORDER")
+        // const cust_list = dbCustomerData.get({ plain: true });
+        res.render('create-order', {
+            // cust_list,
+            loggedIn: true
+        })
+    })
 })
 
 
