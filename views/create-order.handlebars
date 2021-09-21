@@ -1,10 +1,13 @@
+
+<div> ORDER MADE </div>
+
 <div class="card" style="width: 18rem;">
-    <form action="">
+    <form class="new-order-form">
         <div class="form-group">
             <label for="customers">Choose a customer</label>
             <select name="" id="customers" class="form-control">
                 {{#each cust_list }}
-                <option value="{{this.customer_name}}">{{this.customer_name}}<span class="cust-id-span">{{this.id}}</span></option>
+                <option value="{{this.id}}">{{this.customer_name}}</option>
                 {{/each}}
             </select>
         </div>
@@ -17,3 +20,7 @@
         <button type="submit" class="btn btn-success">Create new order</button>
     </form>
 </div>
+
+
+
+<script src="/javascript/create-order.js"></script>
