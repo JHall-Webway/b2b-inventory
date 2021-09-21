@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Customer, Product } = require('../../models');
 
 
 // READ all users
@@ -8,6 +8,30 @@ router.get('/', (req, res) => {
         // update if we want to exclude the password
     )
         .then(dbUserData => res.json(dbUserData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/:id', (req, res) => {
+    User.findOne({
+        where: {
+            id : req.params.id
+        },
+        include: [
+            {model: Customer},
+            {model: Product}
+        ]
+    }
+    )
+        .then(dbUserData => {
+            if(!dbUserData) {
+                res.status(404).json({ message: 'no user found with this id '});
+                return;
+            }
+            res.json(dbUserData);
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
