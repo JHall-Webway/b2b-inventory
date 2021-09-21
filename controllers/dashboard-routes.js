@@ -40,6 +40,37 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
+router.get('/custDetail/:id', withAuth, (req,res) => {
+    Customer.findOne({
+        where: {
+            id: req.session.user_id
+        },
+        attributes: ['id', 'customer_name', 'user_id'],
+        include: [
+            {
+                model: Order,
+                attributes: ['id', 'due_date', 'fulfilled', 'notes'],
+                include: [
+                    {
+                        model: Product,
+                        attributes: ['id', 'product_name']
+                    }
+                ]
+            }
+        ]
+    })
+        .then(dbOrderData => {
+            console.log(dbOrderData);
+            res.render('single-customer', {
+                loggedIn: true
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+})
+
 
 
 
