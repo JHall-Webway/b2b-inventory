@@ -1,14 +1,17 @@
 async function newFormHandler(event) {
     event.preventDefault();
   
-    const cust_name = document.getElementById('cust_name').value;
-    if (!cust_name) {
+    const prod_name = document.getElementById('prod-name').value;
+    const prod_qty = parseInt(document.getElementById('prod-qty').value);
+
+    if (!prod_name || !prod_qty) {
         return;
     } else {
-        const response = await fetch(`/api/customers`, {
+        const response = await fetch(`/api/products`, {
             method: 'POST',
             body: JSON.stringify({
-              customer_name: cust_name
+              product_name: prod_name,
+              quantity: prod_qty
             }),
             headers: {
               'Content-Type': 'application/json'
@@ -23,4 +26,4 @@ async function newFormHandler(event) {
     }
   }
   
-  document.querySelector('.new-cust-form').addEventListener('submit', newFormHandler);
+  document.querySelector('.new-inv-form').addEventListener('submit', newFormHandler);
