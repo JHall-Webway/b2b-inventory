@@ -86,9 +86,11 @@ router.get('/createOrder', withAuth, (req,res) => {
         }
     })
     .then(dbCustomerData => {
-        console.log("CREATE ORDER")
+        const cust_list = dbCustomerData.map(customer => customer.get({plain: true}));
+        console.log(cust_list);
         // const cust_list = dbCustomerData.get({ plain: true });
         res.render('create-order', {
+            cust_list,
             // cust_list,
             loggedIn: true
         })
