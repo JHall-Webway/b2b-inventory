@@ -19,18 +19,36 @@ async function createNewOrder(event) {
               'Content-Type': 'application/json'
             }
           })
-          
-        //   content.id will give us the ID of the order JUST CREATED
-        //   const content = await response.json();
-        //   order_id = content.id;
-          
-        
           if (response.ok) {
-            document.location.replace('/dashboard');
+            // document.location.replace('add-order-detail');
+                const response = await fetch(`/dashboard/add-order-detail`, {
+                    method: 'GET',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    }
+                  })
+                  
+                //   content.id will give us the ID of the order JUST CREATED
+                //   const content = await response.json();
+                //   order_id = content.id;
+                  
+                
+                  if (response.ok) {
+                    document.location.replace('add-order-detail');
+                  } else {
+                    alert(response.statusText);
+                  }
+            
           } else {
             alert(response.statusText);
           }
     }
   }
-  
-  document.querySelector('.new-order-form').addEventListener('submit', createNewOrder);
+
+
+
+document.querySelector('.new-order-form').addEventListener('submit', createNewOrder );
+
+
+
+
