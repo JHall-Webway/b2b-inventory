@@ -2,23 +2,23 @@ const { Customer } = require('../models');
 
 const customerData = [
     {
-        customer_name: "David's (1) customer",
+        customer_name: "Walmart",
         user_id: 1
     },
     {
-        customer_name: "(2nd) DAVID customer",
+        customer_name: "Wayfair",
         user_id: 1
     },
     {
-        customer_name: "Jame's (1) customer",
+        customer_name: "Menards",
         user_id: 2
     },
     {
-        customer_name: "(2nd) JAMES cusomer",
+        customer_name: "Home Depot",
         user_id: 2
     },
     {
-        customer_name: "Zach's customer",
+        customer_name: "Mom & Pop Shop",
         user_id: 3
     }
 ];
