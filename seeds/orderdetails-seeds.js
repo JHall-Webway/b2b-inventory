@@ -49,6 +49,12 @@ const OrderDetailData = [
         product_id: 5,
         quantity: 2000000
     },
+    {
+        order_id: 6,
+        customer_id: 1,
+        product_id: 1,
+        quantity: 50
+    },
 ];
 
 const seedOrderDetail = () => OrderDetail.bulkCreate(OrderDetailData);
