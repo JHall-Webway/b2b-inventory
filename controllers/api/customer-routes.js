@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     Customer.create({
         customer_name: req.body.customer_name,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     })
     .then(dbProductData => res.json(dbProductData))
     .catch(err => {

@@ -1,19 +1,62 @@
-<section class="new-post-section">
-    <button type="submit" class="btn" id="create-new-post">+ Create New Post</button>
-</section>
+<div class="container">
+    <div class="row">
+        {{!-- SELECT existing customer --}}
+        <div class="col-sm">
+            <section>
+                <form class="new-cust-form">
+                    <div>
+                        <label for="cust_name">Customer Name</label>
+                        <input type="text" id="cust_name" name="cust_name" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Create new customer</button>
+                </form>
+            </section>
+            {{#if custList.length}}
+            <section>
+                <h2>My Customers</h2>
+                <ul class="post-list">
+                    {{#each custList as |customer|}}
+                    <li>
+                        <a href="/dashboard/edit/{{customer.customer_name}}" class="get-customer">{{customer.customer_name}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </section>
+            {{/if}}
+        </div>
+        {{!-- EDIT data --}}
+        <div class="col-sm">
+            <section>
+                <h2>Manage data</h2>
+                <button class="btn btn-success col-sm create-order">Create new order</button>
+                <button class="btn btn-success col-sm edit-cust">Edit existing customer</button>
+                <button class="btn btn-success col-sm edit-order">Edit existing order</button>
+                <button class="btn btn-success col-sm edit-inv">Edit Inventory</button>
+            </section>
+        </div>
+        {{!-- Inventory table --}}
+        <div class="col-sm">
+            <section>
+                <h2>Current inventory</h2>
+                <table class="table">
+                    <thead>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                    </thead>
 
+                    <tbody>
+                        {{#each productList as |product|}}
+                        <tr>
+                            <td>{{product.product_name}}</td>
+                            <td>{{product.quantity}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </section>
+        </div>
 
-{{#if customers.length}}
-<section>
-    <h2>My Dashboard</h2>
-    <ul class="post-list">
-        {{#each customers as |customer|}}
-        <li>
-            <a href="/dashboard/edit/{{customer.id}}" class="edit-link">edit post</a>
-        </li>
-        {{/each}}
-    </ul>
-</section>
-{{/if}}
+    </div>
+</div>
 
-<script src="/javascript/create-post.js"></script>
+<script src="/javascript/create-customer.js"></script>
