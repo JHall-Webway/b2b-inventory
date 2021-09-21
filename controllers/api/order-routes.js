@@ -43,7 +43,7 @@ router.get('/:id', (req,res) => {
 router.post('/', (req, res) => {
     Order.create({
         customer_id: req.body.customer_id,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
         due_date: req.body.due_date,
         fulfilled: req.body.fulfilled,
         notes: req.body.notes
