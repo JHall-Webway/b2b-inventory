@@ -38,11 +38,7 @@ router.get('/signup', (req, res) => {
         return;
     }
 
-    res.render('signup');
-});
-
-router.get('*', (req, res) => {
-res.status(404).send('Access not allowed');
+    res.render('login');
 });
 
 module.exports = router;
