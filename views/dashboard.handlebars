@@ -37,6 +37,19 @@
         {{!-- Inventory table --}}
         <div class="col-sm">
             <section>
+                <form class="new-inv-form">
+                    <div>
+                        <label for="prod-name">Product Name</label>
+                        <input type="text" id="prod-name" name="prod-name" />
+                    </div>
+                    <div>
+                        <label for="prod-qty">Quantity</label>
+                        <input type="text" id="prod-qty" name="prod-qty" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Add product</button>
+                </form>
+            </section>
+            <section>
                 <h2>Current inventory</h2>
                 <table class="table">
                     <thead>
@@ -60,3 +73,4 @@
 </div>
 
 <script src="/javascript/create-customer.js"></script>
+<script src="/javascript/add-product.js"></script>
