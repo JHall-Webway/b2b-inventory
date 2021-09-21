@@ -41,7 +41,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 
-router.get('/custDetail/:id', withAuth, (req,res) => {
+router.get('/custDetail/:id', withAuth, (req, res) => {
     Customer.findByPk(req.params.id, {
         where: {
             id: req.session.user_id
@@ -62,7 +62,7 @@ router.get('/custDetail/:id', withAuth, (req,res) => {
             // const prodDetail = customer_data.orders[0];
             // const detail = prodDetail.products[0].orderdetail;
 
-           
+
             console.log(customer_data);
             // console.log('===============')
             // console.log(prodDetail);
@@ -79,26 +79,42 @@ router.get('/custDetail/:id', withAuth, (req,res) => {
         });
 });
 
-router.get('/createOrder', withAuth, (req,res) => {
+router.get('/createOrder', withAuth, (req, res) => {
     Customer.findAll({
         where: {
             user_id: req.session.user_id
         }
     })
-    .then(dbCustomerData => {
-        const cust_list = dbCustomerData.map(customer => customer.get({plain: true}));
-        console.log(cust_list);
-        let order_id = null;
-        // const cust_list = dbCustomerData.get({ plain: true });
-        res.render('create-order', {
-            cust_list,
-            order_id,
-            // cust_list,
-            loggedIn: true
+        .then(dbCustomerData => {
+            const cust_list = dbCustomerData.map(customer => customer.get({ plain: true }));
+            console.log(cust_list);
+            let order_id = null;
+            // const cust_list = dbCustomerData.get({ plain: true });
+            res.render('create-order', {
+                cust_list,
+                order_id,
+                // cust_list,
+                loggedIn: true
+            })
         })
-    })
 })
 
+router.get('/editInventory', (req, res) => {
+    Product.findAll({
+        where: {
+            user_id: req.session.id
+        }
+    })
+        .then(dbProductData => {
+            const product_list = dbProductData.map(product => product.get({ plain: true }));
+            console.log(product_list);
+
+            res.render('edit-inventory', {
+                product_list,
+                loggedIn: true
+            })
+        })
+})
 
 
 

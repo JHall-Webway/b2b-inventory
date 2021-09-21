@@ -1,19 +1,19 @@
-async function createNewOrder(event) {
+async function editInventoryHandler(event) {
     event.preventDefault();
   
-    const cust_id = document.getElementById('customers').value;
-    const dueDate = document.getElementById('due').value;
+    const product = document.getElementById('product').value;
+    const qty = document.getElementById('qty').value;
 
-    console.log(cust_id);
-    console.log(dueDate);
-    if (!cust_id || !dueDate) {
+    console.log(product);
+    console.log(qty);
+    if (!product || !qty) {
         return;
     } else {
-        const response = await fetch(`/api/orders`, {
+        const response = await fetch(`/api/products`, {
             method: 'POST',
             body: JSON.stringify({
-              customer_id: cust_id,
-              due_date: dueDate
+              product_name: product,
+              quantity: qty
             }),
             headers: {
               'Content-Type': 'application/json'
@@ -26,11 +26,11 @@ async function createNewOrder(event) {
           
         
           if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/dashboard/edit-inventory');
           } else {
             alert(response.statusText);
           }
     }
   }
   
-  document.querySelector('.new-order-form').addEventListener('submit', createNewOrder);
+  document.querySelector('.edit-inventory-form').addEventListener('submit', editInventoryHandler);

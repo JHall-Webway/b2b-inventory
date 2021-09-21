@@ -1,0 +1,25 @@
+<div> Edit inventory </div>
+
+<div class="card" style="width: 18rem;">
+    <form class="edit-inventory-form">
+        <div class="form-group">
+            <label for="product">Choose an inventory product</label>
+            <select name="product" id="product" class="form-control">
+                {{#each product_list }}
+                <option value="{{this.id}}">{{this.product_name}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="qty">Edit quantity</label>
+            <input type="range" id="qty" name="qty" min="10" max="100" />        
+        </div>
+
+        <button type="submit" class="btn btn-success">Update inventory</button>
+    </form>
+</div>
+
+
+
+<script src="/javascript/edit-inventory.js"></script>
