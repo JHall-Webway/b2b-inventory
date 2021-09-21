@@ -35,6 +35,14 @@ const OrderData = [
         due_date: "2021-10-10",
         fulfilled: 0,
         notes: "Zach's only customer's order"
+    },
+    // order ID 6
+    {
+        customer_id: 1,
+        user_id: 1,
+        due_date: "2022-07-07",
+        fulfilled: 0,
+        notes: "David's 1st customer's order"
     }
 ];
 
