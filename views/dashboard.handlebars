@@ -17,7 +17,7 @@
                 <ul class="post-list">
                     {{#each custList as |customer|}}
                     <li>
-                        <a href="/dashboard/edit/{{customer.customer_name}}" class="get-customer">{{customer.customer_name}}</a>
+                        <a href="/dashboard/custDetail/{{customer.id}}" class="get-customer">{{customer.customer_name}}</a>
                     </li>
                     {{/each}}
                 </ul>
