@@ -10,9 +10,4 @@ router.use('/dashboard', dashboardRoutes);
 router.use((req, res) => {
     res.status(404).end()
 });
-
-router.get('/', (req, res) => {
-    res.json({ message: 'success' })
-})
-
 module.exports = router;
