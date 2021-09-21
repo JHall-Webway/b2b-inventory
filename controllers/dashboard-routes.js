@@ -60,7 +60,8 @@ router.get('/custDetail/:id', withAuth, (req,res) => {
         ]
     })
         .then(dbOrderData => {
-            console.log(dbOrderData);
+            const customer = dbOrderData.get({ plain: true });
+            console.log(customer);
             res.render('single-customer', {
                 loggedIn: true
             });
