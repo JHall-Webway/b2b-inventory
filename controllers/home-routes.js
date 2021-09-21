@@ -41,4 +41,8 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+router.get('*', (req, res) => {
+res.status(404).send('Access not allowed');
+});
+
 module.exports = router;
