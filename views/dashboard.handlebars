@@ -17,7 +17,8 @@
                 <ul class="post-list">
                     {{#each custList as |customer|}}
                     <li>
-                        <a href="/dashboard/custDetail/{{customer.id}}" class="get-customer">{{customer.customer_name}}</a>
+                        <a href="/dashboard/custDetail/{{customer.id}}"
+                            class="get-customer">{{customer.customer_name}}</a>
                     </li>
                     {{/each}}
                 </ul>
@@ -28,7 +29,8 @@
         <div class="col-sm">
             <section>
                 <h2>Manage data</h2>
-                <a href="/dashboard/createOrder"><button class="btn btn-success col-sm create-order">Create new order</button></a>
+                <a href="/dashboard/createOrder"><button class="btn btn-success col-sm create-order">Create new
+                        order</button></a>
                 <button class="btn btn-success col-sm edit-order">Edit existing order</button>
                 <button class="btn btn-success col-sm edit-inv">Edit Inventory</button>
             </section>
