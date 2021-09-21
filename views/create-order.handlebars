@@ -1,1 +1,19 @@
-<div>create new order</div>
+<div class="card" style="width: 18rem;">
+    <form action="">
+        <div class="form-group">
+            <label for="customers">Choose a customer</label>
+            <select name="" id="customers" class="form-control">
+                {{#each cust_list }}
+                <option value="{{this.customer_name}}">{{this.customer_name}}<span class="cust-id-span">{{this.id}}</span></option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="due">Due Date</label>
+            <input type="date" id="due" name="due" min="2021-10-15" max="2030-01-01" />        
+        </div>
+
+        <button type="submit" class="btn btn-success">Create new order</button>
+    </form>
+</div>
