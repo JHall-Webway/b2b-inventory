@@ -44,11 +44,5 @@ async function createNewOrder(event) {
           }
     }
   }
-
-
-
-document.querySelector('.new-order-form').addEventListener('submit', createNewOrder );
-
-
-
-
+  
+  document.querySelector('.new-order-form').addEventListener('submit', createNewOrder);
