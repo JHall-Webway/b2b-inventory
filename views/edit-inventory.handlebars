@@ -3,7 +3,7 @@
 <div class="card" style="width: 18rem;">
     <form class="edit-inventory-form">
         <div class="form-group">
-            <label for="product">Choose an inventory product</label>
+            <label for="product" class="form-label">Choose an inventory product</label>
             <select name="product" id="product" class="form-control">
                 {{#each product_list }}
                 <option value="{{this.id}}">{{this.product_name}}</option>
