@@ -67,7 +67,31 @@ function generateReport(prodNames, stock, orders) {
     // add table header to table
     tableEl.appendChild(theadEl);
 
+    //create table body
+    let tbodyEl = document.createElement('tbody');
 
+    for (i=0 ; i<prodNames.length; i++) {
+        let trEl = document.createElement('tr');
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        let td3 = document.createElement('td');
+        let td4 = document.createElement('td');
+
+        td1.innerHTML = prodNames[i];
+        td2.innerHTML = stock[i];
+        td3.innerHTML = orders[i];
+        td4.innerHTML = stock[i] - orders[i];
+        
+        trEl.appendChild(td1);
+        trEl.appendChild(td2);
+        trEl.appendChild(td3);
+        trEl.appendChild(td4);
+
+        tbodyEl.appendChild(trEl);
+    }
+
+    // append table body to table
+    tableEl.appendChild(tbodyEl);
     // add table to DOM
     reportHolder.appendChild(tableEl);
 }
