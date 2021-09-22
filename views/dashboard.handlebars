@@ -3,17 +3,17 @@
         {{!-- SELECT existing customer --}}
         <div class="col-sm-6">
             <section>
+                <h2>My Customers</h2>
                 <form class="new-cust-form">
                     <div>
                         <label for="cust_name">Customer Name</label>
                         <input type="text" id="cust_name" name="cust_name" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-success form-control">Create new customer</button>
+                    <button type="submit" class="btn btn-info form-control">Create new customer</button>
                 </form>
             </section>
             {{#if custList.length}}
             <section>
-                <h2>My Customers</h2>
                 <ul class="post-list">
                     {{#each custList as |customer|}}
                     <li>
@@ -29,11 +29,10 @@
         <div class="col-sm-6">
             <section>
                 <h2>Manage data</h2>
-                <a href="/dashboard/createOrder"><button class="btn btn-success col-sm create-order">Create new
-                        order</button></a>
-                <a href="/dashboard/editInventory" class="btn btn-success col-sm edit-inv">Edit Inventory</a>
+                <a href="/dashboard/createOrder"><button class="btn btn-dark col-sm create-order" id="manage">Create new order</button></a>
+                <a href="/dashboard/editInventory" class="btn btn-dark col-sm edit-inv"  id="manage">Edit Inventory</a>
                 {{!-- <a href="/dashboard/generateInvRep" class="btn btn-success col-sm edit-order">Generate Inventory Report</a> --}}
-                <a id="report" class="btn btn-success col-sm report">Generate Inventory Report</a>
+                <a id="report"  class="btn btn-dark col-sm report" style="color: white;" id="manage">Inventory Report</a>
             </section>
             <section id="rep-table">
 
@@ -42,20 +41,20 @@
         {{!-- Inventory table --}}
         <div class="col-sm">
             <section>
+                <h2>Current inventory</h2>
                 <form class="new-inv-form">
                     <div>
-                        <label for="prod-name">Product Name</label>
+                        <label for="prod-name">Add product</label>
                         <input type="text" id="prod-name" name="prod-name" class="form-control" />
                     </div>
                     <div>
-                        <label for="prod-qty">Quantity</label>
-                        <input type="text" id="prod-qty" name="prod-qty" class="form-control"/>
+                        <label for="prod-qty">Add qty</label>
+                        <input type="number" min="1" max="25000" id="prod-qty" name="prod-qty" class="form-control"/>
                     </div>
-                    <button type="submit" class="btn btn-success">Add product</button>
+                    <button type="submit" class="btn btn-info">Add product</button>
                 </form>
             </section>
             <section>
-                <h2>Current inventory</h2>
                 <table class="table table-success table-striped">
                     <thead>
                         <th>Product</th>
