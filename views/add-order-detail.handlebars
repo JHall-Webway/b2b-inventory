@@ -1,6 +1,7 @@
 {{#each order}}
 <h2>Customer: {{this.customer.customer_name}}</h2>
-<h2>Order ID: {{this.id}}</h2>
+<h2 class="cust-id" id='cust-id'>Customer ID:{{this.customer_id}}</h2>
+<h2 class="order-id" id='order-id'>Order ID:{{this.id}}</h2>
 <h2>Due On: {{this.due_date}}</h2>
 {{/each}}
 

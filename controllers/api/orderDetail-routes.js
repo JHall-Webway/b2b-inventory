@@ -28,6 +28,17 @@ router.post('/', (req, res) => {
     })
 });
 
+// BULK CREATE order details
+router.post('/', (req, res) => {
+    const orderDetailArray = req.body
+    OrderDetail.bulkCreate(orderDetailArray)
+    .then(dbOrderDetailData => res.json(dbOrderDetailData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
 // DELETE a line item from an order
 router.delete('/:id', (req,res) => {
     OrderDetail.destroy({
