@@ -68,7 +68,7 @@ router.put('/:id', (req, res) => {
         },
         {
             where: {
-                id: req.params.id
+                user_id: req.session.id
             }
         }
     )

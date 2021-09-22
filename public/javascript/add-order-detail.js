@@ -1,4 +1,5 @@
 const lineForm = document.getElementById('details');
+const postArray = [];
 
 async function grabProducts() {
     const response = await fetch(`/api/products`, {
@@ -46,6 +47,22 @@ function createline(prodObj) {
     lineForm.appendChild(formGroup);
 }
 
+function postDetails() {
+    const orderElArray = document.getElementsByClassName('form-group');
+    orderElArray.forEach(detail => {
+        
+    })
+    // loop ober orderElArra
+    // for each orderEL
+        // grab the select element_id 
+        // grab the value of the input element
+        // push 
+        // push into an object
+        // push into array 
+    
+}
+
 
 
 document.getElementById('add-line').addEventListener('click', grabProducts );
+document.getElementById('submit-detail').addEventListener('click', postDetails );
