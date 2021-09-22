@@ -1,5 +1,9 @@
 const lineForm = document.getElementById('details');
 const postArray = [];
+const custId = document.getElementById('cust-id').innerHTML;
+const orderId = document.getElementById('order-id').innerHTML;
+var filtCustId = custId.replace(/\D/g, "");
+var filtOrderId = orderId.replace(/\D/g, "");
 
 async function grabProducts() {
     const response = await fetch(`/api/products`, {
@@ -36,7 +40,7 @@ function createline(prodObj) {
 
     prodObj.forEach(prod => {
         var dropDownEl = document.createElement('option');
-        dropDownEl.setAttribute('id', `${prod.id}`);
+        dropDownEl.setAttribute('value', `${prod.id}`);
         dropDownEl.text = `${prod.product_name}`
         lineEl.appendChild(dropDownEl);
     })
@@ -48,18 +52,25 @@ function createline(prodObj) {
 }
 
 function postDetails() {
-    const orderElArray = document.getElementsByClassName('form-group');
-    orderElArray.forEach(detail => {
-        
-    })
-    // loop ober orderElArra
-    // for each orderEL
-        // grab the select element_id 
-        // grab the value of the input element
-        // push 
-        // push into an object
-        // push into array 
-    
+    const selectElArray = document.getElementsByTagName('select');
+    const inputElArray = document.getElementsByTagName('input');
+    const filtSelectEl = [];
+    const filtInputEl = [];
+
+    for (i=0; i<selectElArray.length; i++) {
+        filtSelectEl.push(selectElArray[i].value);
+        filtInputEl.push(inputElArray[i].value);
+    }
+
+    console.log(filtSelectEl);
+    console.log(filtInputEl);
+
+
+
+    console.log(filtCustId);
+    console.log(filtOrderId);
+
+
 }
 
 
