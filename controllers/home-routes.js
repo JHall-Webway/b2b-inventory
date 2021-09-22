@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 // if user is logged in redirect to users account else redirect to login
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
 
@@ -38,7 +38,7 @@ router.get('/signup', (req, res) => {
         return;
     }
 
-    res.render('dashboard');
+    res.render('login');
 });
 
 module.exports = router;

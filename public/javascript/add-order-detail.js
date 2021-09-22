@@ -7,6 +7,7 @@ var filtCustId = custId.replace(/\D/g, "");
 var filtOrderId = orderId.replace(/\D/g, "");
 
 async function grabProducts() {
+    warningDivEl.innerHTML = "";
     const response = await fetch(`/api/products`, {
         method: 'GET',
         headers: {
@@ -53,6 +54,15 @@ function createline(prodObj) {
     lineForm.appendChild(formGroup);
 }
 
+function deleteLine() {
+    if (lineForm.firstChild){
+        lineForm.removeChild(lineForm.lastChild);
+    } else {
+        warningDivEl.innerHTML = "No line to remove"
+    }
+    
+}
+
 function postDetails() {
     var orderDetailObj ={};
     const postArray = [];
@@ -75,9 +85,17 @@ function postDetails() {
     // order ID
     console.log(filtOrderId);
 
+    const doesArrayHaveDuplicates = filtSelectEl.some(
+        (val, i) => filtSelectEl.indexOf(val) !== i
+      )
+
     if (filtInputEl.includes('') == true) {
         console.log("THERE IS A NULL");
         warningDivEl.innerHTML = "Please ensure all qunatites have a value"
+    } else if (!filtInputEl.length) {
+        warningDivEl.innerHTML = "Please add at least ONE line to this order"
+    } else if (doesArrayHaveDuplicates) {
+        warningDivEl.innerHTML = "Please ensure the order lines are unique"
     } else {
         for (i=0; i<selectElArray.length; i++) {
             orderDetailObj = {
@@ -95,6 +113,7 @@ function postDetails() {
 
 }
 
+
 async function bulkPost(postArray) {
     const response = await fetch(`/api/orderDetails/bulk`, {
         method: 'post',
@@ -110,6 +129,6 @@ async function bulkPost(postArray) {
     }
 }
 
-
+document.getElementById('remove-line').addEventListener('click', deleteLine );
 document.getElementById('add-line').addEventListener('click', grabProducts );
 document.getElementById('submit-detail').addEventListener('click', postDetails );
