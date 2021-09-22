@@ -3,8 +3,11 @@ const { Product } = require('../../models');
 
 // READ all products
 router.get('/', (req, res) => {
-    Product.findAll(
-        // update if we want to exclude the password
+    Product.findAll({
+        where: {
+            user_id: req.session.user_id
+        }
+    }
     )
     .then(dbProductData => res.json(dbProductData))
     .catch(err => {

@@ -105,9 +105,15 @@ router.get('/add-order-detail', (req,res) =>{
         where: {
             user_id: req.session.user_id
         },
-        order: [[ 'createdAt', 'DESC' ]]
+        order: [[ 'createdAt', 'DESC' ]],
+        include:[
+            {model:Customer,
+             attributes: ['customer_name']
+            }
+        ]
     })
     .then(dbOrderData => {
+        console.log(dbOrderData);
         const order = dbOrderData.map(customer => customer.get({plain: true}));
         console.log(order);
         res.render('add-order-detail', {
