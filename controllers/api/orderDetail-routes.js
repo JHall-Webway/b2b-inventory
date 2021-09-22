@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
 });
 
 // BULK CREATE order details
-router.post('/', (req, res) => {
+router.post('/bulk', (req, res) => {
     const orderDetailArray = req.body
     OrderDetail.bulkCreate(orderDetailArray)
     .then(dbOrderDetailData => res.json(dbOrderDetailData))

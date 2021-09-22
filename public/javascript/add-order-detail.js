@@ -52,6 +52,7 @@ function createline(prodObj) {
 }
 
 function postDetails() {
+    const postArray = [];
     const selectElArray = document.getElementsByTagName('select');
     const inputElArray = document.getElementsByTagName('input');
     const filtSelectEl = [];
@@ -71,10 +72,33 @@ function postDetails() {
     // order ID
     console.log(filtOrderId);
 
+    for (i=0; i<selectElArray.length; i++) {
+        var orderDetailObj = {
+            order_id: parseInt(filtOrderId),
+            customer_id: parseInt(filtCustId),
+            product_id: parseInt(filtSelectEl[i]),
+            quantity: parseInt(filtInputEl[i])
+        }
+        postArray.push(orderDetailObj);
+    }
     
-
+    bulkPost(postArray);
 }
 
+async function bulkPost(postArray) {
+    const response = await fetch(`/api/orderDetails/bulk`, {
+        method: 'post',
+        body: JSON.stringify(postArray),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if (response.ok) {
+        document.location.replace('/dashboard')
+    } else {
+        alert(response.statusText);
+    }
+}
 
 
 document.getElementById('add-line').addEventListener('click', grabProducts );
