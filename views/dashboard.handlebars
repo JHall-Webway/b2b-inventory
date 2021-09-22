@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
         {{!-- SELECT existing customer --}}
-        <div class="col-sm">
+        <div class="col-sm-6">
             <section>
                 <form class="new-cust-form">
                     <div>
                         <label for="cust_name">Customer Name</label>
-                        <input type="text" id="cust_name" name="cust_name" />
+                        <input type="text" id="cust_name" name="cust_name" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-success">Create new customer</button>
+                    <button type="submit" class="btn btn-success form-control">Create new customer</button>
                 </form>
             </section>
             {{#if custList.length}}
@@ -26,7 +26,7 @@
             {{/if}}
         </div>
         {{!-- EDIT data --}}
-        <div class="col-sm">
+        <div class="col-sm-6">
             <section>
                 <h2>Manage data</h2>
                 <a href="/dashboard/createOrder"><button class="btn btn-success col-sm create-order">Create new
@@ -45,18 +45,18 @@
                 <form class="new-inv-form">
                     <div>
                         <label for="prod-name">Product Name</label>
-                        <input type="text" id="prod-name" name="prod-name" />
+                        <input type="text" id="prod-name" name="prod-name" class="form-control" />
                     </div>
                     <div>
                         <label for="prod-qty">Quantity</label>
-                        <input type="text" id="prod-qty" name="prod-qty" />
+                        <input type="text" id="prod-qty" name="prod-qty" class="form-control"/>
                     </div>
                     <button type="submit" class="btn btn-success">Add product</button>
                 </form>
             </section>
             <section>
                 <h2>Current inventory</h2>
-                <table class="table">
+                <table class="table table-success table-striped">
                     <thead>
                         <th>Product</th>
                         <th>Quantity</th>
