@@ -148,6 +148,12 @@ router.get('/generateInvRep', (req, res) => {
     })
     .then(dbProductData => {
         const product_list = dbProductData.map(product => product.get({ plain: true }));
+        console.log(product_list);
+    
+        res.render('edit-inventory', {
+            product_list,
+            loggedIn: true
+        })
     })
 });
 
