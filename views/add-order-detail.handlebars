@@ -1,0 +1,15 @@
+{{#each order}}
+<h2>Customer: {{this.customer.customer_name}}</h2>
+<h2>Order ID: {{this.id}}</h2>
+<h2>Due On: {{this.due_date}}</h2>
+{{/each}}
+
+<button id="add-line" class="btn btn-success">Add new order line</button>
+<button id="submit-detail" class="btn btn-danger">Submit order</button>
+
+{{!-- render a new "line-form" every time the user clicks "add new order line" --}}
+<form id="details" action="">
+
+</form>
+
+<script src="/javascript/add-order-detail.js"></script>
