@@ -62,14 +62,16 @@ function postDetails() {
         filtInputEl.push(inputElArray[i].value);
     }
 
+    // product ID array
     console.log(filtSelectEl);
+    // product QTY array
     console.log(filtInputEl);
-
-
-
+    // customer ID
     console.log(filtCustId);
+    // order ID
     console.log(filtOrderId);
 
+    
 
 }
 
