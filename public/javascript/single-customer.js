@@ -8,7 +8,7 @@ async function deleteOrderHandler(event) {
     
     console.log(response);
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.reload();
     } else {
         alert(response.statusText);
     }
