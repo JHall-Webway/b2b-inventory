@@ -2,6 +2,7 @@ const lineForm = document.getElementById('details');
 const postArray = [];
 const custId = document.getElementById('cust-id').innerHTML;
 const orderId = document.getElementById('order-id').innerHTML;
+const warningDivEl = document.getElementById('warning');
 var filtCustId = custId.replace(/\D/g, "");
 var filtOrderId = orderId.replace(/\D/g, "");
 
@@ -17,6 +18,7 @@ async function grabProducts() {
         createline(data);
     } else {
         alert(response.statusText);
+
     }
 }
 
@@ -52,6 +54,7 @@ function createline(prodObj) {
 }
 
 function postDetails() {
+    var orderDetailObj ={};
     const postArray = [];
     const selectElArray = document.getElementsByTagName('select');
     const inputElArray = document.getElementsByTagName('input');
@@ -72,17 +75,24 @@ function postDetails() {
     // order ID
     console.log(filtOrderId);
 
-    for (i=0; i<selectElArray.length; i++) {
-        var orderDetailObj = {
-            order_id: parseInt(filtOrderId),
-            customer_id: parseInt(filtCustId),
-            product_id: parseInt(filtSelectEl[i]),
-            quantity: parseInt(filtInputEl[i])
+    if (filtInputEl.includes('') == true) {
+        console.log("THERE IS A NULL");
+        warningDivEl.innerHTML = "Please ensure all qunatites have a value"
+    } else {
+        for (i=0; i<selectElArray.length; i++) {
+            orderDetailObj = {
+                order_id: parseInt(filtOrderId),
+                customer_id: parseInt(filtCustId),
+                product_id: parseInt(filtSelectEl[i]),
+                quantity: parseInt(filtInputEl[i])
+            }
+            postArray.push(orderDetailObj);
         }
-        postArray.push(orderDetailObj);
+        
+        bulkPost(postArray);
     }
-    
-    bulkPost(postArray);
+
+
 }
 
 async function bulkPost(postArray) {
