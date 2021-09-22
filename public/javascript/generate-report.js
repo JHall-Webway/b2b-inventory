@@ -90,6 +90,7 @@ function generateReport(prodNames, stock, orders) {
         tbodyEl.appendChild(trEl);
     }
 
+    // append table body to table
     tableEl.appendChild(tbodyEl);
     // add table to DOM
     reportHolder.appendChild(tableEl);
