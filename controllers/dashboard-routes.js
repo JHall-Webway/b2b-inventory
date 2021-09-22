@@ -140,6 +140,17 @@ router.get('/editInventory', (req, res) => {
         })
 })
 
+router.get('/generateInvRep', (req, res) => {
+    Product.findAll({
+        where: {
+            user_id: req.session.user_id
+        }
+    })
+    .then(dbProductData => {
+        const product_list = dbProductData.map(product => product.get({ plain: true }));
+    })
+});
+
 
 
 
