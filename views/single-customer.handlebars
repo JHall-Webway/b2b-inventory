@@ -23,5 +23,21 @@
             </div>
             {{/each}}
         </div>
+        <div class="card" style="width: 18rem;">
+            <form class="delete-order-form">
+                <div class="form-group">
+                    <label for="order">Choose an order</label>
+                    <select name="order" id="order" class="form-control">
+                        {{#each customer_data.orders }}
+                        <option value="{{this.id}}">{{this.id}}</option>
+                        {{/each}}
+                    </select>
+                <button type="button" class="btn btn-danger delete">Delete order</button>
+                </div>
+                
+            </form>
+        </div>
     </div>
 </section>
+
+<script src="/javascript/single-customer.js"></script>
