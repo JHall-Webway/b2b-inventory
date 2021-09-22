@@ -32,7 +32,11 @@
                 <a href="/dashboard/createOrder"><button class="btn btn-success col-sm create-order">Create new
                         order</button></a>
                 <a href="/dashboard/editInventory" class="btn btn-success col-sm edit-inv">Edit Inventory</a>
-                <a href="/dashboard/generateInvRep" class="btn btn-success col-sm edit-order">Generate Inventory Report</a>
+                {{!-- <a href="/dashboard/generateInvRep" class="btn btn-success col-sm edit-order">Generate Inventory Report</a> --}}
+                <a id="report" class="btn btn-success col-sm report">Generate Inventory Report</a>
+            </section>
+            <section id="rep-table">
+
             </section>
         </div>
         {{!-- Inventory table --}}
@@ -73,5 +77,6 @@
     </div>
 </div>
 
+<script src="/javascript/generate-report.js"></script>
 <script src="/javascript/create-customer.js"></script>
 <script src="/javascript/add-product.js"></script>

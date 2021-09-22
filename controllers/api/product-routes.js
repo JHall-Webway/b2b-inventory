@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product } = require('../../models');
+const { Product, Order } = require('../../models');
 
 // READ all products
 router.get('/', (req, res) => {
@@ -7,6 +7,27 @@ router.get('/', (req, res) => {
         where: {
             user_id: req.session.user_id
         }
+    }
+    )
+    .then(dbProductData => res.json(dbProductData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+// READ all products and order details
+router.get('/prod-and-detail', (req, res) => {
+    Product.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        include: [
+            {
+                model: Order,
+                attributes: ["id"]
+            }
+        ]
     }
     )
     .then(dbProductData => res.json(dbProductData))
