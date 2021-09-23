@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cherp</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  {{!-- <link rel="stylesheet" href="/stylesheets/login.css"> --}}
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="container">
+      <h1>
+        <h1 class="display-1" style="text-shadow: 2px 2px 8px black;">Cherp<h1>
+      </h1>
+      <nav class="row">
+        {{#if loggedIn}}
+        {{!-- <a href="/dashboard">Dashboard</a> --}}
+        <a href="/dashboard"><button type="button" class="btn btn-primary">Dashboard</button></a>
+        <button type="button" id="logout" class="btn btn-warning">Logout</button>
+        {{else}}
+        {{!-- <a href="/login">Login</a> --}}
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+  </div>
+
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+
+  {{/if}}
+
+
+</body>
+
+</html>

@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+    --color-white: #f3f3f3;
+    --color-darkblue: #1b1b32;
+    --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+    --color-green: #37af65;
+  }
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-white);
+    margin: 0;
+    height: 100%;
+}
+
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: var(--color-darkblue);
+    background-image: linear-gradient(
+        200deg,
+        rgba(70, 158, 58, 0.8),
+        rgba(100, 129, 116, 0.7)
+      ),
+      url(https://cdn.pixabay.com/photo/2015/07/08/03/13/forklift-835340_960_720.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    font-style: none;
+}
+/* 
+input {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+} */
+#manage {
+    margin-bottom: 2%;
+    color: white;
+}
+
+
+/* Typography */
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+h1 {
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+h1,
+p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.125rem;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+.text-center {
+  text-align: center;
+}
+
+
+
+
+
+/* form */
+
+.form-heading {
+    font-family: Poppins-Bold;
+    font-size: 24px;
+    color: #333;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding-bottom: 54px;
+}
+
+.login-page {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.cust-id-span {
+    opacity: 0;
+    display: none;
+}
+
+/* button {
+    font-family: Montserrat-Bold;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: #57b846;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+} */
+
+a {
+    margin: 0;
+    text-decoration: none;
+}
+
+.input {
+    max-width: 75%;
+}
+
+
+
+input {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+.small {
+    max-width: 50%;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.submit-button {
+    border: none;
+  }
+
+.cont {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+form {
+  background: var(--color-darkblue-alpha);
+  padding: 2.5rem 0.625rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
+
+.group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.cont {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.cont:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* End of form */
+
+/* Drop zone */
+
+.drop-zone {
+    max-width: 200px;
+    height: 200px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+
+    /* Indicate to user that you can click on the drop zone */
+    cursor: pointer;
+
+    color: #ccc;
+    border: 4px dashed #009578;
+    border-radius: 10px;
+}
+
+
+/* EXCEL DPOPZONE STYLE */
+/* Class to be added by JS when the user drags out over the element and such*/
+.drop-zone--over {
+    border-style: solid;
+}
+
+.drop-zone__input {
+    display: none;
+}
+
+.drop-zone__thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ccc;
+    background-size: cover;
+    position: relative;
+}
+
+.drop-zone__thumb::after {
+    /* Display the text of the data attribute label */
+    content: attr(data-label);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 0;
+    color: white;
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+    text-align: center;
+}
+
+/* End of drop zone */
+
+/* media queries */
+
+@media (min-width: 576px) {
+  .cont {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cont {
+    max-width: 720px;
+  }
+}

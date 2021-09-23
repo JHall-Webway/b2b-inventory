@@ -1,0 +1,43 @@
+<section>
+    <div class="container">
+    <h2 class="row display-4" style="color: #ffc300; text-shadow: 2px 2px 8px black;">{{customer_data.customer_name}}'s Orders</h2>
+        <div class="row">
+            {{#each customer_data.orders as |order|}}
+            <div class="col-sm">
+                <h3>Order ID: {{order.id}}</h3>
+                <h4>Due Date: {{order.due_date}}</h4>
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                    </thead>
+                    <tbody>
+                        {{#each order.products as |product|}}
+                        <tr>
+                            <td>{{product.product_name}}</td>
+                            <td>{{product.orderdetail.quantity}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            {{/each}}
+        </div>
+        <div class="card" style="width: 18rem;">
+            <form class="delete-order-form">
+                <div class="form-group">
+                    <label for="order">Choose an order</label>
+                    <select name="order" id="order" class="form-control">
+                        {{#each customer_data.orders }}
+                        <option value="{{this.id}}">{{this.id}}</option>
+                        {{/each}}
+                    </select>
+                <button type="button" class="btn btn-danger delete">Delete order</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</section>
+
+<script src="/javascript/single-customer.js"></script>
