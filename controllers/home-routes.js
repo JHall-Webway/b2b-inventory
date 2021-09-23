@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         .then(dbPostData => {
             const customers = dbPostData.map(user => user.get({ plain: true }));
             // render the homepage handlebars
-            res.render('homepage', { 
+            res.render('homepage', {
                 customers,
                 loggedIn: req.session.loggedIn });
         })
@@ -63,7 +63,10 @@ router.post('/upload', (req, res) => {
 
     Product.bulkCreate(readyData)
     .then(dbProductData => {
-        res.json('UPLOADED')
+        // res.render('dashboard', {
+        //     loggedIn: req.session.loggedIn
+        // })
+        res.redirect('/dashboard');
     })
 
 });
