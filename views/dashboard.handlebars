@@ -16,9 +16,9 @@
             <section>
                 <ul class="post-list list-group">
                     {{#each custList as |customer|}}
-                    <li class="list-group-item list-group-item-dark">
+                    <li class="list-group-item list-group-item-dark" style="display: flex; justify-content: center;">
                         <a href="/dashboard/custDetail/{{customer.id}}"
-                            class="get-customer">{{customer.customer_name}}</a>
+                            class="get-customer h4">{{customer.customer_name}}</a>
                     </li>
                     {{/each}}
                 </ul>
@@ -43,9 +43,8 @@
         {{!-- Inventory table --}}
         <div class="col-sm">
             <section>
-                <h2>Current inventory</h2>
+                <h2>Manage inventory</h2>
                 <form class="new-inv-form">
-                    <h2>Manage inventory</h2>
                     <a href="/dashboard/editInventory" class="btn btn-info col-sm edit-inv small" id="manage">Edit
                         Inventory</a>
                     <div>
