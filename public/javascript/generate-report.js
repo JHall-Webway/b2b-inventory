@@ -44,6 +44,8 @@ function generateReport(prodNames, stock, orders) {
     reportHolder.innerHTML = "";
     let tableEl = document.createElement('table');
     tableEl.classList.add('table');
+    tableEl.classList.add('table-warning');
+    tableEl.classList.add('table-hover');
 
     let theadEl = document.createElement('thead');
 
