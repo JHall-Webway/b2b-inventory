@@ -14,11 +14,10 @@
             </section>
             {{#if custList.length}}
             <section>
-                <ul class="post-list">
+                <ul class="post-list list-group">
                     {{#each custList as |customer|}}
-                    <li>
-                        <a href="/dashboard/custDetail/{{customer.id}}"
-                            class="get-customer">{{customer.customer_name}}</a>
+                    <li class="list-group-item list-group-item-dark">
+                        <a href="/dashboard/custDetail/{{customer.id}}" class="get-customer">{{customer.customer_name}}</a>
                     </li>
                     {{/each}}
                 </ul>

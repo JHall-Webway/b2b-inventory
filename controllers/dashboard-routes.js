@@ -16,6 +16,9 @@ router.get('/', withAuth, (req, res) => {
             {
                 model: Product,
                 attributes: ['product_name', 'quantity']
+            },
+            {
+                model: Order
             }
         ]
     })
@@ -26,8 +29,12 @@ router.get('/', withAuth, (req, res) => {
             const productList = dbCustomerData.products.map(product => product.get({
                 plain: true
             }));
+            const orderList = dbCustomerData.orders.map(product => product.get({
+                plain: true
+            }));
             console.log(custList);
             console.log(productList);
+            console.log(orderList);
             res.render('dashboard', {
                 custList,
                 productList,
