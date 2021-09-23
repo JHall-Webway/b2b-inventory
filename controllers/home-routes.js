@@ -3,10 +3,11 @@ const { Customer, Product } = require('../models');
 
 const expresFileUpload = require('express-fileupload');
 const xlReader = require('../utils/excelReader');
+const withAuth = require('../utils/auth');
 router.use(expresFileUpload());
 
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Customer.findAll({
         attributes: [
             'id',

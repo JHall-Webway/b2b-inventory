@@ -1,14 +1,53 @@
-* {
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+:root {
+    --color-white: #f3f3f3;
+    --color-darkblue: #1b1b32;
+    --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+    --color-green: #37af65;
+  }
 
 body,
 html {
-    height: 100%;
     padding: 0;
     margin: 0;
     font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-white);
+    margin: 0;
+    height: 100%;
 }
+
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: var(--color-darkblue);
+    background-image: linear-gradient(
+        115deg,
+        rgba(70, 158, 58, 0.8),
+        rgba(100, 129, 116, 0.7)
+      ),
+      url(https://cdn.pixabay.com/photo/2015/07/08/03/13/forklift-835340_960_720.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 
 header h1 {
     display: flex;
@@ -32,6 +71,59 @@ input {
     margin-bottom: 2%;
     color: white;
 }
+
+
+/* Typography */
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+h1 {
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+h1,
+p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 1.125rem;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+.text-center {
+  text-align: center;
+}
+
+
+
+
+
+/* form */
+
 .form-heading {
     font-family: Poppins-Bold;
     font-size: 24px;
@@ -82,6 +174,86 @@ a {
     margin: 0;
     text-decoration: none;
 }
+
+.input {
+    max-width: 75%;
+}
+
+
+
+input {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+.small {
+    max-width: 50%;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.submit-button {
+    border: none;
+  }
+
+.cont {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+form {
+  background: var(--color-darkblue-alpha);
+  padding: 2.5rem 0.625rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
+
+.group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.cont {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.cont:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* End of form */
+
+/* Drop zone */
 
 .drop-zone {
     max-width: 200px;
@@ -136,4 +308,20 @@ a {
     background: rgba(0, 0, 0, 0.75);
     font-size: 14px;
     text-align: center;
+}
+
+/* End of drop zone */
+
+/* media queries */
+
+@media (min-width: 576px) {
+  .cont {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cont {
+    max-width: 720px;
+  }
 }
