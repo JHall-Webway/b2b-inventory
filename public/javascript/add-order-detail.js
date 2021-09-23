@@ -29,6 +29,7 @@ function createline(prodObj) {
 
     var labelEl = document.createElement('label');
     labelEl.setAttribute('for', 'select-prod');
+    labelEl.classList.add('line-label')
     labelEl.innerHTML = "Select product";
 
     var lineEl = document.createElement('select');
