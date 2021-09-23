@@ -1,25 +1,37 @@
-<div> Edit inventory </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h2> Edit inventory </h2>
+            <div class="card" style="width: 18rem;">
+                <form class="edit-inventory-form">
+                    <div class="form-group">
+                        <label for="product" class="form-label">Choose an inventory product</label>
+                        <select name="product" id="product" class="form-control">
+                            {{#each product_list }}
+                            <option value="{{this.id}}">{{this.product_name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
 
-<div class="card" style="width: 18rem;">
-    <form class="edit-inventory-form">
-        <div class="form-group">
-            <label for="product" class="form-label">Choose an inventory product</label>
-            <select name="product" id="product" class="form-control">
-                {{#each product_list }}
-                <option value="{{this.id}}">{{this.product_name}}</option>
-                {{/each}}
-            </select>
+                    <div class="form-group">
+                        <label for="qty">Edit quantity</label>
+                        <input type="number" id="qty" name="qty" min="1" max="25000"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Update product</button>
+                    <button type="button" class="btn btn-danger delete">Delete product</button>
+                </form>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="qty">Edit quantity</label>
-            <input type="number" id="qty" name="qty" min="1" max="25000"/>
+        <div class="col-sm">
+            <h2>Seed Data</h2>
         </div>
-
-        <button type="submit" class="btn btn-success">Update product</button>
-        <button type="button" class="btn btn-danger delete">Delete product</button>
-    </form>
+    </div>
 </div>
+
+
+
 
 
 
