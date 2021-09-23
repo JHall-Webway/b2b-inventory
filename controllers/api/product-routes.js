@@ -75,7 +75,11 @@ router.delete('/:id', (req,res) => {
 router.post('/excel', (req, res) => {
     const productArray = req.body;
 
-    Product.bulkCreate(productArray)
+    Product.bulkCreate(productArray, {
+        where: {
+            user_id: req.session.user_id
+        }
+    })
     .then(dbProductData => {
         res.json('UPLOADED')
     })

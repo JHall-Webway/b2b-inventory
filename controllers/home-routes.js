@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Customer } = require('../models');
+const { Customer, Product } = require('../models');
 
 const expresFileUpload = require('express-fileupload');
 const xlReader = require('../utils/excelReader');
@@ -51,12 +51,39 @@ router.post('/upload', (req, res) => {
     if(!req.files || Object.keys(req.files).length == 0) {
         return res.status(400).send("No files were uploaded");
     }
-
     // req.files.NAME OF INPUT TAG
     let uploadedFile = req.files.myFile;
 
-    xlReader(uploadedFile.data);
+    let readyData = xlReader(uploadedFile.data);
+    console.log(readyData);
+    readyData.forEach(data => {
+        data.user_id = req.session.user_id
+    })
+    console.log(readyData);
+
+    Product.bulkCreate(readyData)
+    .then(dbProductData => {
+        res.json('UPLOADED')
+    })
+
 });
+
+function sendData(readyData) {
+    router.post('/products/excel', (req, res) => {
+        Product.bulkCreate(readyData, {
+            where: {
+                user_id: req.session.user_id
+            }
+        })
+        .then(dbProductData => {
+            res.json('UPLOADED')
+        })
+    })
+}
+
+
+
+
 
 
 module.exports = router;
