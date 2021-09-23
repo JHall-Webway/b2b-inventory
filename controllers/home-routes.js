@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const { Customer } = require('../models');
 
+const expresFileUpload = require('express-fileupload');
+const xlReader = require('../utils/excelReader');
+router.use(expresFileUpload());
+
+
 router.get('/', (req, res) => {
     Customer.findAll({
         attributes: [
@@ -40,5 +45,18 @@ router.get('/signup', (req, res) => {
 
     res.render('login');
 });
+
+// EXCEL ROUTE-------------------------------------------
+router.post('/upload', (req, res) => {
+    if(!req.files || Object.keys(req.files).length == 0) {
+        return res.status(400).send("No files were uploaded");
+    }
+
+    // req.files.NAME OF INPUT TAG
+    let uploadedFile = req.files.myFile;
+
+    xlReader(uploadedFile.data);
+});
+
 
 module.exports = router;

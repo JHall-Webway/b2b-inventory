@@ -26,6 +26,18 @@
 
         <div class="col-sm">
             <h2>Seed Data</h2>
+            <!-- wrap the entire dropzone in a form to submit files SOMEWHERE-->
+            <!-- the ROUTE we will send this file through is "/upload" -->
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <div class="drop-zone">
+                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                    <!-- allows us a place to store the files a user has selected -->
+                    <!-- we'll need a NAME attribute to actually process the file for regular form submission-->
+                    <!-- the NAME is the way our express upload library will upload the file -->
+                    <input type="file" name="myFile" class="drop-zone__input" id="">
+                </div>
+                <button type="submit" name="submit">Upload</button>
+            </form>
         </div>
     </div>
 </div>
