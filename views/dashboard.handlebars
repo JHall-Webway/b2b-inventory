@@ -1,19 +1,21 @@
+<link rel="stylesheet" href="/stylesheets/dashboard.css">
 <div class="container">
     <div class="row">
         {{!-- SELECT existing customer --}}
         <div class="col-sm-6">
             <section>
                 <h2>My Customers</h2>
-                <form class="new-cust-form">
+                <form class="new-cust-form" id="cust-form">
                     <div>
                         <label for="cust_name">Customer Name</label>
                         <input type="text" id="cust_name" name="cust_name" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-info form-control">Create new customer</button>
+                    <button type="submit" class="btn btn-info form-control">Add new customer</button>
                 </form>
             </section>
             {{#if custList.length}}
             <section>
+                <button type="submit" class="btn btn-info form-control add-customer" id="cust-btn">Add new customer</button>
                 <ul class="post-list list-group">
                     {{#each custList as |customer|}}
                     <li class="list-group-item list-group-item-dark">
@@ -41,7 +43,7 @@
         <div class="col-sm">
             <section>
                 <h2>Current inventory</h2>
-                <form class="new-inv-form">
+                <form class="new-inv-form" id="product-form">
                     <div>
                         <label for="prod-name">Add product</label>
                         <input type="text" id="prod-name" name="prod-name" class="form-control" />
@@ -54,6 +56,7 @@
                 </form>
             </section>
             <section>
+                <button type="submit" class="btn btn-info form-control add-product" id="prod-btn">Add new product</button>
                 <table class="table table-success table-striped">
                     <thead>
                         <th>Product</th>

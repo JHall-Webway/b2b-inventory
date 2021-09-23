@@ -10,9 +10,9 @@ html {
     font-family: 'Oswald', sans-serif;
 }
 
-header h1 {
+header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     font-style: none;
 }
 /* 

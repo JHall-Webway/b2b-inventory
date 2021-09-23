@@ -24,3 +24,8 @@ async function newFormHandler(event) {
 }
 
 document.querySelector('.new-cust-form').addEventListener('submit', newFormHandler);
+document.querySelector('.add-customer').addEventListener('click', (event) => {
+  event.preventDefault();
+  document.getElementById('cust-form').style.display = 'block';
+  document.getElementById('cust-btn').style.display = 'none';
+});

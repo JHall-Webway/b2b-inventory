@@ -27,3 +27,8 @@ async function newFormHandler(event) {
 }
 
 document.querySelector('.new-inv-form').addEventListener('submit', newFormHandler);
+document.querySelector('.add-product').addEventListener('click', (event) => {
+  event.preventDefault();
+  document.getElementById('product-form').style.display = 'block';
+  document.getElementById('prod-btn').style.display = 'none';
+});
