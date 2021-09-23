@@ -17,7 +17,8 @@
                 <ul class="post-list list-group">
                     {{#each custList as |customer|}}
                     <li class="list-group-item list-group-item-dark">
-                        <a href="/dashboard/custDetail/{{customer.id}}" class="get-customer">{{customer.customer_name}}</a>
+                        <a href="/dashboard/custDetail/{{customer.id}}"
+                            class="get-customer">{{customer.customer_name}}</a>
                     </li>
                     {{/each}}
                 </ul>
@@ -28,10 +29,12 @@
         <div class="col-sm-6">
             <section>
                 <h2>Manage data</h2>
-                <a href="/dashboard/createOrder"><button class="btn btn-dark col-sm create-order" id="manage">Create new order</button></a>
-                <a href="/dashboard/editInventory" class="btn btn-dark col-sm edit-inv"  id="manage">Edit Inventory</a>
-                {{!-- <a href="/dashboard/generateInvRep" class="btn btn-success col-sm edit-order">Generate Inventory Report</a> --}}
-                <a id="report"  class="btn btn-dark col-sm report" style="color: white;" id="manage">Inventory Report</a>
+                <a href="/dashboard/createOrder"><button class="btn btn-dark col-sm create-order" id="manage">Create new
+                        order</button></a>
+                {{!-- <a href="/dashboard/editInventory" class="btn btn-dark col-sm edit-inv" id="manage">Edit Inventory</a> --}}
+                {{!-- <a href="/dashboard/generateInvRep" class="btn btn-success col-sm edit-order">Generate Inventory
+                    Report</a> --}}
+                <a id="report" class="btn btn-dark col-sm report" style="color: white;" id="manage">Inventory Report</a>
             </section>
             <section id="rep-table">
 
@@ -42,13 +45,17 @@
             <section>
                 <h2>Current inventory</h2>
                 <form class="new-inv-form">
+                    <h2>Manage inventory</h2>
+                    <a href="/dashboard/editInventory" class="btn btn-dark col-sm edit-inv small" id="manage">Edit
+                        Inventory</a>
                     <div>
                         <label for="prod-name">Add product</label>
-                        <input type="text" id="prod-name" name="prod-name" class="form-control" />
+                        <input type="text" id="prod-name" name="prod-name" class="form-control input" />
                     </div>
                     <div>
                         <label for="prod-qty">Add qty</label>
-                        <input type="number" min="1" max="25000" id="prod-qty" name="prod-qty" class="form-control"/>
+                        <input type="number" min="1" max="25000" id="prod-qty" name="prod-qty"
+                            class="form-control input" />
                     </div>
                     <button type="submit" class="btn btn-info">Add product</button>
                 </form>
