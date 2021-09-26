@@ -54,23 +54,11 @@ header h1 {
     justify-content: center;
     font-style: none;
 }
-/* 
-input {
-    font-family: 'Oswald', sans-serif;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #666;
-    display: block;
-    width: 100%;
-    background: #e6e6e6;
-    height: 50px;
-    border-radius: 25px;
-    padding: 0 30px 0 68px;
-} */
+
 
 #manage {
     margin-bottom: 2%;
-    color: white;
+    color: #212529;
 }
 
 
@@ -105,27 +93,42 @@ p {
 }
 
 p {
-    font-size: 1.125rem;
+  font-size: 1.125rem;
 }
 
 label {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
   }
 
-.text-center {
-  text-align: center;
-}
+  .text-center {
+    text-align: center;
+  }
+  
+  .get-customer {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
 
+  .get-customer:hover{
+    text-decoration: none;
+    transition: 1ms;
+    color: #fff;
+  }
 
-
-
-
-/* form */
-
-.form-heading {
+  
+  /* form */
+  
+  form {
+    background: var(--color-darkblue-alpha);
+    padding: 2.5rem 0.625rem;
+    border-radius: 0.25rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .form-heading {
     font-family: Poppins-Bold;
     font-size: 24px;
     color: #333;
@@ -134,9 +137,9 @@ label {
     width: 100%;
     display: block;
     padding-bottom: 54px;
-}
-
-.login-page {
+  }
+  
+  .login-page {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -144,119 +147,94 @@ label {
     flex-wrap: wrap;
     justify-content: center;
     
-}
-
-.cust-id-span {
+  }
+  
+  .cust-id-span {
     opacity: 0;
     display: none;
-}
-
-/* button {
-    font-family: Montserrat-Bold;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #fff;
-    text-transform: uppercase;
-    width: 100%;
-    height: 50px;
-    border-radius: 25px;
-    background: #57b846;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 25px;
-    -webkit-transition: all .4s;
-    -o-transition: all .4s;
-    -moz-transition: all .4s;
-    transition: all .4s;
-} */
-
-a {
+  }
+  
+  a {
     margin: 0;
     text-decoration: none;
-}
-
-.input {
+  }
+  
+  .input {
     max-width: 50%;
-}
-
-
-
-input {
+  }
+  
+  
+  
+  input {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
   }
-
-.small {
+  
+  .small {
     max-width: 50%;
-}
-
-button {
+  }
+  
+  button {
     margin-top: 10px;
-}
-
-.submit-button {
+  }
+  
+  .submit-button {
     border: none;
   }
-
-.cont {
-  width: 100%;
-  margin: 3.125rem auto 0 auto;
-}
-
-form {
-  background: var(--color-darkblue-alpha);
-  padding: 2.5rem 0.625rem;
-  border-radius: 0.25rem;
-}
-
-@media (min-width: 480px) {
-  form {
-    padding: 2.5rem;
+  
+  .cont {
+    width: 100%;
+    margin: 3.125rem auto 0 auto;
   }
-}
-
-.group {
-  margin: 0 auto 1.25rem auto;
-  padding: 0.25rem;
-}
-
-.cont {
-  display: block;
-  width: 100%;
-  height: 2.375rem;
-  padding: 0.375rem 0.75rem;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.cont:focus {
-  border-color: #80bdff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-.submit-button {
-  display: block;
-  width: 100%;
-  padding: 0.75rem;
-  background: var(--color-green);
-  color: inherit;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
-/* End of form */
-
-/* Drop zone */
-
-.drop-zone {
+  
+  
+  @media (min-width: 480px) {
+    form {
+      padding: 2.5rem;
+    }
+  }
+  
+  .group {
+    margin: 0 auto 1.25rem auto;
+    padding: 0.25rem;
+  }
+  
+  .cont {
+    display: block;
+    width: 100%;
+    height: 2.375rem;
+    padding: 0.375rem 0.75rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .cont:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--color-green);
+    color: inherit;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  /* End of form */
+  
+  /* Drop zone */
+  
+  .drop-zone {
     max-width: 200px;
     height: 200px;
     padding: 25px;
@@ -267,27 +245,27 @@ form {
     font-family: 'Quicksand', sans-serif;
     font-weight: 500;
     font-size: 20px;
-
+    
     /* Indicate to user that you can click on the drop zone */
     cursor: pointer;
-
+    
     color: #ccc;
     border: 4px dashed #009578;
     border-radius: 10px;
-}
-
-
-/* EXCEL DPOPZONE STYLE */
-/* Class to be added by JS when the user drags out over the element and such*/
-.drop-zone--over {
+  }
+  
+  
+  /* EXCEL DPOPZONE STYLE */
+  /* Class to be added by JS when the user drags out over the element and such*/
+  .drop-zone--over {
     border-style: solid;
-}
-
-.drop-zone__input {
+  }
+  
+  .drop-zone__input {
     display: none;
-}
-
-.drop-zone__thumb {
+  }
+  
+  .drop-zone__thumb {
     width: 100%;
     height: 100%;
     border-radius: 10px;
@@ -295,9 +273,9 @@ form {
     background-color: #ccc;
     background-size: cover;
     position: relative;
-}
-
-.drop-zone__thumb::after {
+  }
+  
+  .drop-zone__thumb::after {
     /* Display the text of the data attribute label */
     content: attr(data-label);
     position: absolute;
@@ -309,20 +287,20 @@ form {
     background: rgba(0, 0, 0, 0.75);
     font-size: 14px;
     text-align: center;
-}
-
-/* End of drop zone */
-
-/* media queries */
-
-@media (min-width: 576px) {
-  .cont {
-    max-width: 540px;
   }
-}
-
-@media (min-width: 768px) {
-  .cont {
-    max-width: 720px;
+  
+  /* End of drop zone */
+  
+  /* media queries */
+  
+  @media (min-width: 576px) {
+    .cont {
+      max-width: 540px;
+    }
   }
-}
+  
+  @media (min-width: 768px) {
+    .cont {
+      max-width: 720px;
+    }
+  }

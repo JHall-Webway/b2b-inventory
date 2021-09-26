@@ -9,7 +9,7 @@
                         <label for="cust_name">Customer Name</label>
                         <input type="text" id="cust_name" name="cust_name" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-info form-control">Create new customer</button>
+                    <button type="submit" class="btn btn-warning form-control">Create new customer</button>
                 </form>
             </section>
             {{#if custList.length}}
@@ -29,7 +29,7 @@
         <div class="col-sm-6">
             <section>
                 <h2 style="color: #ffc300; text-shadow: 2px 2px 8px black;" class="display-4">Manage data</h2>
-                <a href="/dashboard/createOrder"><button class="btn btn-dark col-sm create-order" id="manage">Create new
+                <a href="/dashboard/createOrder"><button class="btn btn-dark col-sm create-order text-light" id="manage">Create new
                         order</button></a>
                 {{!-- <a href="/dashboard/editInventory" class="btn btn-dark col-sm edit-inv" id="manage">Edit Inventory</a> --}}
                 {{!-- <a href="/dashboard/generateInvRep" class="btn btn-success col-sm edit-order">Generate Inventory
@@ -45,7 +45,7 @@
             <section>
                 <h2 style="color: #ffc300; text-shadow: 2px 2px 8px black;" class="display-4">Manage inventory</h2>
                 <form class="new-inv-form">
-                    <a href="/dashboard/editInventory" class="btn btn-info col-sm edit-inv small" id="manage">Edit
+                    <a href="/dashboard/editInventory" class="btn btn-warning col-sm edit-inv small" id="manage">Edit
                         Inventory</a>
                     <div>
                         <label for="prod-name">Add product</label>
@@ -56,7 +56,7 @@
                         <input type="number" min="1" max="25000" id="prod-qty" name="prod-qty"
                             class="form-control input" />
                     </div>
-                    <button type="submit" class="btn btn-info">Add product</button>
+                    <button type="submit" class="btn btn-warning">Add product</button>
                 </form>
             </section>
             <section>
