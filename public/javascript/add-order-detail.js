@@ -92,7 +92,7 @@ function postDetails() {
 
     if (filtInputEl.includes('') == true) {
         console.log("THERE IS A NULL");
-        warningDivEl.innerHTML = "Please ensure all qunatites have a value"
+        warningDivEl.innerHTML = "Please ensure all quantities have a value"
     } else if (!filtInputEl.length) {
         warningDivEl.innerHTML = "Please add at least ONE line to this order"
     } else if (doesArrayHaveDuplicates) {

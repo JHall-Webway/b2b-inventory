@@ -7,7 +7,7 @@
                 <form class="new-cust-form">
                     <div>
                         <label for="cust_name">Customer Name</label>
-                        <input type="text" id="cust_name" name="cust_name" class="form-control" />
+                        <input type="text" id="cust_name" name="cust_name" class="form-control" required />
                     </div>
                     <button type="submit" class="btn btn-warning form-control">Create new customer</button>
                 </form>
@@ -51,12 +51,12 @@
                         Inventory</a>
                     <div>
                         <label for="prod-name">Add product</label>
-                        <input type="text" id="prod-name" name="prod-name" class="form-control input" />
+                        <input type="text" id="prod-name" name="prod-name" class="form-control input" required />
                     </div>
                     <div>
                         <label for="prod-qty">Add qty</label>
                         <input type="number" min="1" max="25000" id="prod-qty" name="prod-qty"
-                            class="form-control input" />
+                            class="form-control input" required />
                     </div>
                     <button type="submit" class="btn btn-warning">Add product</button>
                 </form>
