@@ -293,14 +293,28 @@ label {
   
   /* media queries */
   
+  /*
   @media (min-width: 576px) {
-    .cont {
+    .container {
       max-width: 540px;
     }
   }
   
   @media (min-width: 768px) {
-    .cont {
+    .container {
       max-width: 720px;
     }
+  }
+  */
+
+  @media ( max-width: 575px) {
+    .container {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 992px) {
+   .container {
+     max-width: 25%;
+   } 
   }
