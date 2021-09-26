@@ -21,7 +21,7 @@ async function grabProducts() {
             let orderQtyHolder = 0;
             product.orders.forEach(order => {
                 // orderQtyHolder.push(order.orderdetail.quantity);   
-                orderQtyHolder = orderQtyHolder + order.orderdetail.quantity 
+                orderQtyHolder = orderQtyHolder + order.orderdetail.quantity
             })
             orderArray.push(orderQtyHolder)
         });
@@ -72,7 +72,7 @@ function generateReport(prodNames, stock, orders) {
     //create table body
     let tbodyEl = document.createElement('tbody');
 
-    for (i=0 ; i<prodNames.length; i++) {
+    for (i = 0; i < prodNames.length; i++) {
         let trEl = document.createElement('tr');
         let td1 = document.createElement('td');
         let td2 = document.createElement('td');
@@ -83,7 +83,7 @@ function generateReport(prodNames, stock, orders) {
         td2.innerHTML = stock[i];
         td3.innerHTML = orders[i];
         td4.innerHTML = stock[i] - orders[i];
-        
+
         trEl.appendChild(td1);
         trEl.appendChild(td2);
         trEl.appendChild(td3);

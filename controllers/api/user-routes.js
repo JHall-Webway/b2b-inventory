@@ -17,17 +17,17 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     User.findOne({
         where: {
-            id : req.params.id
+            id: req.params.id
         },
         include: [
-            {model: Customer},
-            {model: Product}
+            { model: Customer },
+            { model: Product }
         ]
     }
     )
         .then(dbUserData => {
-            if(!dbUserData) {
-                res.status(404).json({ message: 'no user found with this id '});
+            if (!dbUserData) {
+                res.status(404).json({ message: 'no user found with this id ' });
                 return;
             }
             res.json(dbUserData);
@@ -92,7 +92,7 @@ router.post('/login', (req, res) => {
 
 // Logout route
 router.post('/logout', (req, res) => {
-    if(req.session.loggedIn) {
+    if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
         });
