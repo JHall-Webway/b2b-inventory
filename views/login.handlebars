@@ -3,11 +3,11 @@
 <form action="" class="login-form <!--d-flex justify-content-center flex-column w-50-->">
   <div>
     <label for="email-login">email:</label>
-    <input type="email" id="email-login" class="form-control">
+    <input type="email" id="email-login" class="form-control" required>
   </div>
   <div>
     <label for="password-login">password:</label>
-    <input type="password" id="password-login" class="form-control" minlength="4">
+    <input type="password" id="password-login" class="form-control" minlength="4" required>
   </div>
   <div>
     <button type="submit" class="submit-button">login</button>
@@ -17,15 +17,15 @@
 <form class="signup-form <!--d-flex justify-content-center flex-column w-50-->">
   <div>
     <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" class="form-control" />
+    <input type="text" id="username-signup" class="form-control" required />
   </div>
   <div>
     <label for="email-signup">email:</label>
-    <input type="email" id="email-signup" class="form-control" />
+    <input type="email" id="email-signup" class="form-control" required />
   </div>
   <div>
     <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" class="form-control" minlength="4" />
+    <input type="password" id="password-signup" class="form-control" minlength="4" required />
   </div>
   <div>
     <button type="submit" class="submit-button">signup</button>
