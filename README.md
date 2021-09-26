@@ -1,6 +1,6 @@
 # _Cherp_
-**_For owners of a small business who feel “too large” for excel and “too small” for out of the box erp solutions-- we bring you Cherp. The easy to use inventory & order management system that will allow you to focus on your business, and we’ll remember all of the details for you-- large or small._**
-
+_For owners of a small business who feel “too large” for excel and “too small” for out of the box erp solutions-- we bring you Cherp. The easy to use inventory & order management system that will allow you to focus on your business, and we’ll remember all of the details for you-- large or small._
+> Live demo [_here_](https://cherp-io.herokuapp.com/). 
 
 ## Table of Contents
 * [Technologies Used](#technologies-used)
@@ -32,18 +32,35 @@
 
 ## Features
 Ready Features:
-1. **Allows the user to view the current inventory**
-2. **Allows to view the customers of the user**
-3. **Allows the user to view all the orders of each customer and the due date of them**
-4. **Allows the user to generate a report of the current products and quantity and the demand for each product**
-5. **Allows the user to add products**
-6. **Allow the user to edit the quantity of the product**
-7. **Allow the user to delete a product**
-8. **Allow the user to create new orders for customers**
-9. **Allows the user to delete orders**
-10. **Allows the user to create a new customer**
-11. **Allows the user to drag or upload an excel sheet that will automatically upload all the products and quantity into the inventory**
+1. **Allows the user to signup and login with the account created**
 
+![Login](./assets/screenshots/login.png)
+
+2. **Allows the user to add products**
+3. **Allow the user to delete a product**
+4. **Allow the user to edit the quantity of the product**
+5. **Allows the user to drag or upload an excel sheet that will automatically upload all the products and quantity into the inventory**
+
+![Add-products](./assets/screenshots/editInv.png)
+![Add-products](./assets/screenshots/editInv2.png)
+
+6. **Allows the user to view the current inventory**
+
+![Add-products](./assets/screenshots/editInv3.png)
+
+7. **Allows the user to create a new customer**
+
+![Create-customer](./assets/screenshots/createCust.png)
+
+
+8. **Allows the user to view current customers**
+9. **Allows the user to view all the orders of each customer and the due date of them**
+10. **Allows the user to create new orders for customers**
+11. **Allows the user to delete orders**
+
+![Create-customer](./assets/screenshots/createCust2.png)
+
+9. **Allows the user to generate a report of the current products and quantity and the demand for each product**
 
 ## Project Status
 Project is: _in progress_
