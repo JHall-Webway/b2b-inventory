@@ -10,7 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-  {{!-- <link rel="stylesheet" href="/stylesheets/login.css"> --}}
+  {{!--
+  <link rel="stylesheet" href="/stylesheets/login.css"> --}}
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
@@ -19,16 +20,16 @@
     <header class="container">
       <h1>
         <h1 class="display-1" style="text-shadow: 2px 2px 8px black;">Cherp<h1>
-      </h1>
-      <nav class="row">
-        {{#if loggedIn}}
-        {{!-- <a href="/dashboard">Dashboard</a> --}}
-        <a href="/dashboard"><button type="button" class="btn btn-dark">Dashboard</button></a>
-        <button type="button" id="logout" class="btn btn-warning">Logout</button>
-        {{else}}
-        {{!-- <a href="/login">Login</a> --}}
-        {{/if}}
-      </nav>
+          </h1>
+          <nav class="row">
+            {{#if loggedIn}}
+            {{!-- <a href="/dashboard">Dashboard</a> --}}
+            <a href="/dashboard"><button type="button" class="btn btn-dark">Dashboard</button></a>
+            <button type="button" id="logout" class="btn btn-warning">Logout</button>
+            {{else}}
+            {{!-- <a href="/login">Login</a> --}}
+            {{/if}}
+          </nav>
     </header>
     <main>
       {{{ body }}}

@@ -56,23 +56,23 @@ function createline(prodObj) {
 }
 
 function deleteLine() {
-    if (lineForm.firstChild){
+    if (lineForm.firstChild) {
         lineForm.removeChild(lineForm.lastChild);
     } else {
         warningDivEl.innerHTML = "No line to remove"
     }
-    
+
 }
 
 function postDetails() {
-    var orderDetailObj ={};
+    var orderDetailObj = {};
     const postArray = [];
     const selectElArray = document.getElementsByTagName('select');
     const inputElArray = document.getElementsByTagName('input');
     const filtSelectEl = [];
     const filtInputEl = [];
 
-    for (i=0; i<selectElArray.length; i++) {
+    for (i = 0; i < selectElArray.length; i++) {
         filtSelectEl.push(selectElArray[i].value);
         filtInputEl.push(inputElArray[i].value);
     }
@@ -88,7 +88,7 @@ function postDetails() {
 
     const doesArrayHaveDuplicates = filtSelectEl.some(
         (val, i) => filtSelectEl.indexOf(val) !== i
-      )
+    )
 
     if (filtInputEl.includes('') == true) {
         console.log("THERE IS A NULL");
@@ -98,7 +98,7 @@ function postDetails() {
     } else if (doesArrayHaveDuplicates) {
         warningDivEl.innerHTML = "Please ensure the order lines are unique"
     } else {
-        for (i=0; i<selectElArray.length; i++) {
+        for (i = 0; i < selectElArray.length; i++) {
             orderDetailObj = {
                 order_id: parseInt(filtOrderId),
                 customer_id: parseInt(filtCustId),
@@ -107,7 +107,7 @@ function postDetails() {
             }
             postArray.push(orderDetailObj);
         }
-        
+
         bulkPost(postArray);
     }
 
@@ -130,6 +130,6 @@ async function bulkPost(postArray) {
     }
 }
 
-document.getElementById('remove-line').addEventListener('click', deleteLine );
-document.getElementById('add-line').addEventListener('click', grabProducts );
-document.getElementById('submit-detail').addEventListener('click', postDetails );
+document.getElementById('remove-line').addEventListener('click', deleteLine);
+document.getElementById('add-line').addEventListener('click', grabProducts);
+document.getElementById('submit-detail').addEventListener('click', postDetails);
