@@ -1,6 +1,7 @@
 <section>
     <div class="container">
-    <h2 class="row display-4" style="color: #ffc300; text-shadow: 2px 2px 8px black;">{{customer_data.customer_name}}'s Orders</h2>
+        <h2 class="row display-4" style="color: #ffc300; text-shadow: 2px 2px 8px black;">
+            {{customer_data.customer_name}}'s Orders</h2>
         <div class="row">
             {{#each customer_data.orders as |order|}}
             <div class="col-sm">
@@ -32,9 +33,9 @@
                         <option value="{{this.id}}">{{this.id}}</option>
                         {{/each}}
                     </select>
-                <button type="button" class="btn btn-danger delete">Delete order</button>
+                    <button type="button" class="btn btn-danger delete">Delete order</button>
                 </div>
-                
+
             </form>
         </div>
     </div>

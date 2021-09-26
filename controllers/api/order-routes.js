@@ -6,15 +6,15 @@ router.get('/', (req, res) => {
     Order.findAll(
         // update if we want to exclude the password
     )
-    .then(dbProductData => res.json(dbProductData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbProductData => res.json(dbProductData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // READ one order and all order details
-router.get('/:id', (req,res) => {
+router.get('/:id', (req, res) => {
     Order.findOne({
         where: {
             id: req.params.id
@@ -26,17 +26,17 @@ router.get('/:id', (req,res) => {
             }
         ]
     })
-    .then(dbOrderData => {
-        if (!dbOrderData) {
-            res.status(404).json({ message: 'No order found with this id'});
-            return;
-        }
-        res.json(dbOrderData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+        .then(dbOrderData => {
+            if (!dbOrderData) {
+                res.status(404).json({ message: 'No order found with this id' });
+                return;
+            }
+            res.json(dbOrderData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
 });
 
 // CREATE new order
@@ -48,11 +48,11 @@ router.post('/', (req, res) => {
         fulfilled: req.body.fulfilled,
         notes: req.body.notes
     })
-    .then(dbProductData => res.json(dbProductData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
+        .then(dbProductData => res.json(dbProductData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        })
 });
 
 // DELETE order and all associated order details
@@ -62,17 +62,17 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbOrderData => {
-        if (!dbOrderData) {
-            res.status(404).json({ message: 'No order found with this id'});
-            return;
-        }
-        res.json(dbOrderData);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbOrderData => {
+            if (!dbOrderData) {
+                res.status(404).json({ message: 'No order found with this id' });
+                return;
+            }
+            res.json(dbOrderData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

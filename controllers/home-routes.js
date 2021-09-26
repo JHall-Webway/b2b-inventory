@@ -19,7 +19,8 @@ router.get('/', withAuth, (req, res) => {
             // render the homepage handlebars
             res.render('homepage', {
                 customers,
-                loggedIn: req.session.loggedIn });
+                loggedIn: req.session.loggedIn
+            });
         })
         .catch(err => {
             console.log(err);
@@ -49,7 +50,7 @@ router.get('/signup', (req, res) => {
 
 // EXCEL ROUTE-------------------------------------------
 router.post('/upload', (req, res) => {
-    if(!req.files || Object.keys(req.files).length == 0) {
+    if (!req.files || Object.keys(req.files).length == 0) {
         return res.status(400).send("No files were uploaded");
     }
     // req.files.NAME OF INPUT TAG
@@ -63,12 +64,12 @@ router.post('/upload', (req, res) => {
     console.log(readyData);
 
     Product.bulkCreate(readyData)
-    .then(dbProductData => {
-        // res.render('dashboard', {
-        //     loggedIn: req.session.loggedIn
-        // })
-        res.redirect('/dashboard');
-    })
+        .then(dbProductData => {
+            // res.render('dashboard', {
+            //     loggedIn: req.session.loggedIn
+            // })
+            res.redirect('/dashboard');
+        })
 
 });
 
@@ -79,9 +80,9 @@ function sendData(readyData) {
                 user_id: req.session.user_id
             }
         })
-        .then(dbProductData => {
-            res.json('UPLOADED')
-        })
+            .then(dbProductData => {
+                res.json('UPLOADED')
+            })
     })
 }
 
